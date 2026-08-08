@@ -1,11 +1,17 @@
 extends Node
 
 var music_player : AudioStreamPlayer
+var amb_player : AudioStreamPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	music_player = AudioStreamPlayer.new()
 	add_child(music_player)
+	amb_player = AudioStreamPlayer.new()
+	add_child(amb_player)
+	amb_player.stream = load("res://assets/audio/howling_wind.mp3")
+	amb_player.play()
+	amb_player.volume_db = -10
 
 func play_music(path: String, override:= false):
 	var music_stream = load(path)
