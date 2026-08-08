@@ -2,6 +2,7 @@ extends Node
 
 func _ready() -> void:
 	%Transition.find_child("AnimationPlayer").play("transition_in")
+	AudioManager.play_music(GameInfo.scenes.get(GameInfo.currLevel)["music"], false)
 
 func setLightedLantern():
 	# Sprite, disable dark blocks, enable light blocks, etc.

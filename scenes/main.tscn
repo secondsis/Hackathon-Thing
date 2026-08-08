@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://bhc8l104frlee" path="res://scripts/fan.gd" id="6_85g3d"]
 [ext_resource type="Script" uid="uid://dvs0tn12grpxt" path="res://scripts/game.gd" id="6_tefeu"]
 [ext_resource type="Texture2D" uid="uid://d2aouajiuxim3" path="res://assets/fan.png" id="6_tipki"]
+[ext_resource type="Script" uid="uid://cl8m8gvsskarp" path="res://scenes/dialogue.gd" id="6_trceg"]
 [ext_resource type="Texture2D" uid="uid://uv8806u6eik0" path="res://assets/bluefire.png" id="7_o6xl0"]
 [ext_resource type="Script" uid="uid://b0wp1vnnwfwy1" path="res://scripts/fire.gd" id="8_choun"]
 [ext_resource type="Script" uid="uid://vficj33l8yem" path="res://scripts/audio_manager.gd" id="12_eb6dy"]
@@ -257,6 +258,24 @@ texture = ExtResource("5_ya4ey")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Transition" unique_id=662235106]
 libraries/ = SubResource("AnimationLibrary_trceg")
 
+[node name="DialogueContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1154170045]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 211.2
+offset_top = 360.0
+offset_right = -211.20007
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_trceg")
+
+[node name="DialogueText" type="RichTextLabel" parent="CanvasLayer/DialogueContainer" unique_id=558251424]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 48
+text = "
+	-	A notebook. "
+
 [node name="Game" type="Node2D" parent="." unique_id=392370872]
 script = ExtResource("6_tefeu")
 
@@ -333,6 +352,10 @@ shape = SubResource("RectangleShape2D_eb6dy")
 
 [node name="AudioManager" type="Node" parent="." unique_id=1734110681]
 script = ExtResource("12_eb6dy")
+
+[node name="Notebook" type="Node2D" parent="." unique_id=1093475]
+
+[node name="Sprite2D" type="Sprite2D" parent="Notebook" unique_id=681644011]
 
 [connection signal="body_entered" from="LightDoor/Area2D" to="LightDoor" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="DarkDoor/Area2D" to="DarkDoor" method="_on_area_2d_body_entered"]
