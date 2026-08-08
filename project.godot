@@ -11,8 +11,21 @@ config_version=5
 [application]
 
 config/name="hackathon-thing"
+run/main_scene="uid://bh668p5swlbpn"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://assets/icon.svg"
+
+[autoload]
+
+GameInfo="*uid://c23mji5id4bgq"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+
+[global_group]
+
+Player=""
 
 [physics]
 
@@ -20,4 +33,5 @@ config/icon="res://icon.svg"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"

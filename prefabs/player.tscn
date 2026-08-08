@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://481el6amxy1s"]
+
+[ext_resource type="Script" uid="uid://2wcxnjwqmabv" path="res://scripts/player.gd" id="1_4dohe"]
+[ext_resource type="Texture2D" uid="uid://dhnb0tm0scisu" path="res://assets/Lantern_Dark.png" id="2_r66lb"]
+[ext_resource type="Texture2D" uid="uid://c8pappwblgr7t" path="res://assets/Lantern_LitColorBlue.png" id="3_r66lb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7dm0k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_r66lb")
+}],
+"loop": true,
+"name": &"dark",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_r66lb")
+}],
+"loop": true,
+"name": &"light",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
+size = Vector2(12, 16)
+
+[node name="Player" type="CharacterBody2D" unique_id=1955259213 groups=["Player"]]
+z_index = 2
+script = ExtResource("1_4dohe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=379691833]
+sprite_frames = SubResource("SpriteFrames_7dm0k")
+animation = &"dark"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=250317440]
+shape = SubResource("RectangleShape2D_0wfyh")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=519126064]
+zoom = Vector2(2, 2)

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://xm1bd1w4e8xi"]
+
+[ext_resource type="Script" uid="uid://dm5nb8gkbtsxm" path="res://scripts/door_handler.gd" id="1_3i7ej"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6xl0"]
+
+[node name="LightDoor" type="Node2D" unique_id=1992834227]
+script = ExtResource("1_3i7ej")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1538588916]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=588850648]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1792542024]
+shape = SubResource("RectangleShape2D_o6xl0")
