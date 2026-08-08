@@ -3,7 +3,7 @@ extends Node
 var lanternType = "dark"
 
 func _ready() -> void:
-	%Transition.find_child("AnimationPlayer").play("transition_in")
+	get_tree().get_first_node_in_group("transition").find_child("AnimationPlayer").play("transition_in")
 	AudioManager.play_music(GameInfo.scenes.get(GameInfo.currLevel)["music"], false)
 	setDarkenedLantern()
 
@@ -14,6 +14,9 @@ func setLightedLantern():
 	lanternType = "light"
 	disableDarkBlocks()
 	enableLightBlocks()
+	%Player.find_child("Glow").visible = true
+	%Player.find_child("Glow2").visible = true
+
 
 func setDarkenedLantern():
 	var playerAnimSprite : AnimatedSprite2D = %Player.find_child("AnimatedSprite2D")
@@ -21,15 +24,38 @@ func setDarkenedLantern():
 	lanternType = "dark"
 	enableDarkBlocks()
 	disableLightBlocks()
+	%Player.find_child("Glow").visible = false
+	%Player.find_child("Glow2").visible = false
 	
 
 func enableLightBlocks():
 	%LightLayer.visible = true
 	%LightLayer.collision_enabled = true
+	var lightNodes := get_tree().get_nodes_in_group("isLight")
+	var darkNodes := get_tree().get_nodes_in_group("isDark")
+	for lightNode in lightNodes:
+		lightNode.visible = true
+		var cs : CollisionShape2D = lightNode.find_child("CollisionShape2D")
+		cs.disabled = false
+	
+	for darkNode in darkNodes:
+		darkNode.visible = false
+		var cs : CollisionShape2D = darkNode.find_child("CollisionShape2D")
+		cs.disabled = true
 
 func enableDarkBlocks():
 	%DarkLayer.visible = true
 	%DarkLayer.collision_enabled = true
+	var lightNodes := get_tree().get_nodes_in_group("isLight")
+	var darkNodes := get_tree().get_nodes_in_group("isDark")
+	for lightNode in lightNodes:
+		lightNode.visible = false
+		var cs : CollisionShape2D = lightNode.find_child("CollisionShape2D")
+		cs.disabled = true
+	for darkNode in darkNodes:
+		darkNode.visible = true
+		var cs : CollisionShape2D = darkNode.find_child("CollisionShape2D")
+		cs.disabled = false
 
 func disableLightBlocks():
 	%LightLayer.visible = false
@@ -78,7 +104,6 @@ func _on_huge_pig_enter(body: Node2D) -> void:
 		initiate_dialogues(guh, 2)
 		%HugePig.queue_free()
 		AudioManager.play_sound("res://assets/audio/item_get.wav")
-
 
 
 func _on_telescreen_enter(body: Node2D) -> void:

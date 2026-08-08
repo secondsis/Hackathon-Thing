@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dtrb2tahy51k2"]
+
+[ext_resource type="Script" uid="uid://b00d8645nwlkq" path="res://scripts/rotating_area.gd" id="1_cohus"]
+[ext_resource type="Texture2D" uid="uid://dqhiukxq8iopn" path="res://assets/platforms.png" id="2_yrhox"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jbj1t"]
+
+[node name="RotatingArea" type="Node2D" unique_id=161747465 groups=["isLight"]]
+script = ExtResource("1_cohus")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=1449920452]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=1313245671]
+shape = SubResource("CircleShape2D_jbj1t")
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=812096930]
+texture = ExtResource("2_yrhox")
+region_enabled = true
+region_rect = Rect2(16, 0, 16, 16)

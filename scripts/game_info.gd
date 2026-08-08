@@ -27,6 +27,6 @@ func change_scene(level: int):
 	var new_scene = func(p):
 		get_tree().change_scene_to_packed(load(scenes.get(level-1)["scene"]))
 	
-	var transitionAnimPlayer : AnimationPlayer = %Transition.find_child("AnimationPlayer")
+	var transitionAnimPlayer : AnimationPlayer = get_tree().get_first_node_in_group("transition").find_child("AnimationPlayer")
 	transitionAnimPlayer.play("transition_out")
 	transitionAnimPlayer.animation_finished.connect(new_scene)

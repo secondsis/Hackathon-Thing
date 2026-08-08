@@ -2,21 +2,23 @@
 
 [ext_resource type="Texture2D" uid="uid://crj353qchiwqb" path="res://assets/tilesheet2.png" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://481el6amxy1s" path="res://prefabs/player.tscn" id="2_tefeu"]
+[ext_resource type="Texture2D" uid="uid://cobx7t7i3k45i" path="res://assets/doors.png" id="3_muem4"]
 [ext_resource type="PackedScene" uid="uid://xm1bd1w4e8xi" path="res://prefabs/light_door.tscn" id="3_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://vavwyryxatec" path="res://prefabs/dark_door.tscn" id="4_tipki"]
 [ext_resource type="Script" uid="uid://c23mji5id4bgq" path="res://scripts/game_info.gd" id="5_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://d3wbo867oj5cc" path="res://assets/LiterallyAWhiteFircle.png" id="5_ya4ey"]
-[ext_resource type="Script" uid="uid://bhc8l104frlee" path="res://scripts/fan.gd" id="6_85g3d"]
 [ext_resource type="Script" uid="uid://dvs0tn12grpxt" path="res://scripts/game.gd" id="6_tefeu"]
-[ext_resource type="Texture2D" uid="uid://d2aouajiuxim3" path="res://assets/fan.png" id="6_tipki"]
-[ext_resource type="Script" uid="uid://cl8m8gvsskarp" path="res://scenes/dialogue.gd" id="6_trceg"]
-[ext_resource type="Texture2D" uid="uid://uv8806u6eik0" path="res://assets/bluefire.png" id="7_o6xl0"]
-[ext_resource type="Script" uid="uid://b0wp1vnnwfwy1" path="res://scripts/fire.gd" id="8_choun"]
-[ext_resource type="Script" uid="uid://b00d8645nwlkq" path="res://scripts/rotating_area.gd" id="10_jkv2x"]
+[ext_resource type="Script" uid="uid://cl8m8gvsskarp" path="res://scripts/dialogue.gd" id="6_trceg"]
+[ext_resource type="FontFile" uid="uid://dkj7fge6et3t5" path="res://assets/BitcountPropSingle-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="8_jbj1t"]
+[ext_resource type="PackedScene" uid="uid://dr2ahkj02g2q2" path="res://prefabs/fan.tscn" id="11_muem4"]
+[ext_resource type="PackedScene" uid="uid://dtrb2tahy51k2" path="res://prefabs/rotating_area.tscn" id="12_dp3eg"]
 [ext_resource type="Script" uid="uid://vficj33l8yem" path="res://scripts/audio_manager.gd" id="12_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://c1v3axwwulfnl" path="res://prefabs/fire.tscn" id="13_0ld40"]
+[ext_resource type="Texture2D" uid="uid://dqhiukxq8iopn" path="res://assets/platforms.png" id="13_dp3eg"]
 [ext_resource type="Texture2D" uid="uid://cnoshr6drbudv" path="res://assets/icon.svg" id="14_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://c37fk1p8i7sil" path="res://prefabs/void.tscn" id="15_gqmmt"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yc10j"]
 texture = ExtResource("1_sugp2")
 0:0/0 = 0
 1:0/0 = 0
@@ -34,9 +36,18 @@ texture = ExtResource("1_sugp2")
 
 [sub_resource type="TileSet" id="TileSet_tefeu"]
 physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_jyhfs")
+sources/1 = SubResource("TileSetAtlasSource_yc10j")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jscy8"]
+texture = ExtResource("13_dp3eg")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0/custom_data_0 = true
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -2.4730587, -2.5719795, -8, 2.6709023, -8, 8, -3.2644367, 8, 2.8687458, 2.8687458, 8, -2.4730568, 8, -8, 2.769823)
+1:0/0/custom_data_0 = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pm3ni"]
 texture = ExtResource("1_sugp2")
 0:0/0 = 0
 2:0/0 = 0
@@ -60,7 +71,8 @@ custom_data_layer_0/name = "isLightBlock"
 custom_data_layer_0/type = 1
 custom_data_layer_1/name = "isDarkBlock"
 custom_data_layer_1/type = 1
-sources/1 = SubResource("TileSetAtlasSource_tbgi4")
+sources/1 = SubResource("TileSetAtlasSource_pm3ni")
+sources/0 = SubResource("TileSetAtlasSource_jscy8")
 
 [sub_resource type="Animation" id="Animation_ya4ey"]
 length = 0.001
@@ -150,74 +162,11 @@ _data = {
 &"transition_out": SubResource("Animation_eb6dy")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_choun"]
-atlas = ExtResource("6_tipki")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="Theme" id="Theme_muem4"]
+default_font = ExtResource("8_jbj1t")
+default_font_size = 8
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ya4ey"]
-atlas = ExtResource("6_tipki")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eb6dy"]
-atlas = ExtResource("6_tipki")
-region = Rect2(0, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_trceg"]
-atlas = ExtResource("6_tipki")
-region = Rect2(16, 16, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_a8y0u"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_choun")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ya4ey")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eb6dy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_trceg")
-}],
-"loop": true,
-"name": &"default",
-"speed": 24.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_choun"]
-size = Vector2(11, 16)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_jbj1t"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tipki"]
-atlas = ExtResource("7_o6xl0")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_85g3d"]
-atlas = ExtResource("7_o6xl0")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_choun"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tipki")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_85g3d")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ya4ey"]
-size = Vector2(15, 17)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eb6dy"]
-size = Vector2(6608, 208)
+[sub_resource type="Theme" id="Theme_dp3eg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jkv2x"]
 
@@ -235,7 +184,7 @@ tile_set = SubResource("TileSet_tipki")
 
 [node name="LightLayer" type="TileMapLayer" parent="TileMap" unique_id=1210012120]
 unique_name_in_owner = true
-tile_map_data = PackedByteArray("AAAJAPz/AQACAAEAAAAKAPv/AQACAAEAAAALAPv/AQACAAEAAAAMAPv/AQACAAEAAAANAPv/AQACAAEAAAAOAPv/AQACAAEAAAA=")
+tile_map_data = PackedByteArray("AAAOAPv/AAAAAAAAAAANAPv/AAAAAAAAAAAMAPv/AAAAAAAAAAALAPv/AAAAAAAAAAAKAPv/AAAAAAAAAAAJAPv/AAAAAAAAAAAIAPz/AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_tipki")
 
 [node name="DarkLayer" type="TileMapLayer" parent="TileMap" unique_id=1821385965]
@@ -243,11 +192,21 @@ unique_name_in_owner = true
 tile_map_data = PackedByteArray("AAD3////AQAAAAIAAAD2////AQAAAAIAAAD1////AQAAAAIAAAD0////AQAAAAIAAAD0/wAAAQAAAAIAAADz/wAAAQAAAAIAAADz/wEAAQAAAAIAAADy/wEAAQAAAAIAAADy/wIAAQAAAAIAAADx/wIAAQAAAAIAAADw/wQAAQAAAAIAAADv/wQAAQAAAAIAAADu/wQAAQAAAAIAAADt/wQAAQAAAAIAAADs/wQAAQAAAAIAAAA=")
 tile_set = SubResource("TileSet_tipki")
 
-[node name="LightDoor" parent="." unique_id=1992834227 instance=ExtResource("3_o6xl0")]
+[node name="LightDoor" parent="." unique_id=1992834227 groups=["isLight"] instance=ExtResource("3_o6xl0")]
 position = Vector2(224, -88)
 
-[node name="DarkDoor" parent="." unique_id=1674757581 instance=ExtResource("4_tipki")]
+[node name="Sprite2D" parent="LightDoor" index="0" unique_id=1538588916]
+texture = ExtResource("3_muem4")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="DarkDoor" parent="." unique_id=1674757581 groups=["isDark"] instance=ExtResource("4_tipki")]
 position = Vector2(-304, 56)
+
+[node name="Sprite2D" parent="DarkDoor" index="0" unique_id=1270523231]
+texture = ExtResource("3_muem4")
+region_enabled = true
+region_rect = Rect2(16, 0, 16, 16)
 
 [node name="GameInfo" type="Node2D" parent="." unique_id=1698807950]
 position = Vector2(-304, 56)
@@ -292,6 +251,7 @@ offset_top = -24.0
 offset_right = 3000.0
 offset_bottom = 2158.0
 scale = Vector2(0.01, 0.01)
+theme = SubResource("Theme_muem4")
 theme_override_font_sizes/normal_font_size = 800
 bbcode_enabled = true
 text = "Light up!"
@@ -305,53 +265,22 @@ offset_top = -104.0
 offset_right = 4096.0
 offset_bottom = 2396.0
 scale = Vector2(0.01, 0.01)
+theme = SubResource("Theme_dp3eg")
+theme_override_fonts/normal_font = ExtResource("8_jbj1t")
 theme_override_font_sizes/normal_font_size = 600
 bbcode_enabled = true
 text = "The flame lights the way..."
 fit_content = true
 horizontal_alignment = 1
 
-[node name="Fan" type="Node2D" parent="." unique_id=1843499563]
+[node name="Fan" parent="." unique_id=399879698 instance=ExtResource("11_muem4")]
 position = Vector2(-120, 8)
-script = ExtResource("6_85g3d")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fan" unique_id=980406784]
-sprite_frames = SubResource("SpriteFrames_a8y0u")
-frame = 2
-frame_progress = 0.53366244
+[node name="RotatingArea" parent="." unique_id=161747465 instance=ExtResource("12_dp3eg")]
+position = Vector2(61, -114)
 
-[node name="Area2D" type="Area2D" parent="Fan" unique_id=2145925015]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fan/Area2D" unique_id=2024936451]
-position = Vector2(-0.5, 1)
-shape = SubResource("RectangleShape2D_choun")
-
-[node name="RotatingArea" type="Node2D" parent="." unique_id=1027434749]
-position = Vector2(31, -71)
-script = ExtResource("10_jkv2x")
-
-[node name="AnimatableBody2D" type="AnimatableBody2D" parent="RotatingArea" unique_id=2036332332]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RotatingArea/AnimatableBody2D" unique_id=1654771442]
-shape = SubResource("CircleShape2D_jbj1t")
-
-[node name="Sprite2D" type="Sprite2D" parent="RotatingArea/AnimatableBody2D" unique_id=295340340]
-scale = Vector2(0.02, 0.02)
-texture = ExtResource("5_ya4ey")
-
-[node name="Fire" type="Node2D" parent="." unique_id=328915697]
+[node name="Fire" parent="." unique_id=1652482592 instance=ExtResource("13_0ld40")]
 position = Vector2(8, 8)
-script = ExtResource("8_choun")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fire" unique_id=2097634280]
-sprite_frames = SubResource("SpriteFrames_choun")
-frame_progress = 0.58282906
-
-[node name="Area2D" type="Area2D" parent="Fire" unique_id=1738878104]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fire/Area2D" unique_id=848599]
-position = Vector2(-0.5, 0.5)
-shape = SubResource("RectangleShape2D_ya4ey")
 
 [node name="Player" parent="." unique_id=1955259213 instance=ExtResource("2_tefeu")]
 unique_name_in_owner = true
@@ -363,13 +292,7 @@ position = Vector2(0, 1)
 [node name="Camera2D" parent="Player" index="2" unique_id=519126064]
 zoom = Vector2(5, 5)
 
-[node name="Void" type="Node2D" parent="." unique_id=1271615545]
-
-[node name="Area2D" type="Area2D" parent="Void" unique_id=1568862500]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Void/Area2D" unique_id=1312241863]
-position = Vector2(1208, 216)
-shape = SubResource("RectangleShape2D_eb6dy")
+[node name="Void" parent="." unique_id=556981264 instance=ExtResource("15_gqmmt")]
 
 [node name="AudioManager" type="Node" parent="." unique_id=1734110681]
 script = ExtResource("12_eb6dy")
@@ -424,4 +347,8 @@ shape = SubResource("RectangleShape2D_jkv2x")
 
 [editable path="LightDoor"]
 [editable path="DarkDoor"]
+[editable path="Fan"]
+[editable path="RotatingArea"]
+[editable path="Fire"]
 [editable path="Player"]
+[editable path="Void"]
