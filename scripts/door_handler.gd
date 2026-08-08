@@ -20,4 +20,5 @@ func progress_level():
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	# Check if player
 	if body.is_in_group("Player"):
+		print("next scene")
 		GameInfo.progress_scene()
