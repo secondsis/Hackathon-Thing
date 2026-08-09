@@ -17,7 +17,6 @@
 [ext_resource type="Script" uid="uid://c23mji5id4bgq" path="res://scripts/game_info.gd" id="10_x2fux"]
 [ext_resource type="PackedScene" uid="uid://c37fk1p8i7sil" path="res://prefabs/void.tscn" id="11_2os1m"]
 [ext_resource type="PackedScene" uid="uid://c1v3axwwulfnl" path="res://prefabs/fire.tscn" id="12_go7sj"]
-[ext_resource type="PackedScene" uid="uid://dtrb2tahy51k2" path="res://prefabs/rotating_area.tscn" id="15_s7g0b"]
 [ext_resource type="Texture2D" uid="uid://ckpiug1rcadoj" path="res://assets/colors/green_fire.png" id="17_mmfjm"]
 [ext_resource type="Script" uid="uid://vficj33l8yem" path="res://scripts/audio_manager.gd" id="20_k8ld0"]
 
@@ -296,6 +295,7 @@ tile_map_data = PackedByteArray("AAD0/wAAAgADAAIAAADz/wAAAgADAAIAAADz/wEAAgADAAI
 tile_set = SubResource("TileSet_tipki")
 
 [node name="LightDoor" parent="." unique_id=1992834227 groups=["isLight"] instance=ExtResource("3_2os1m")]
+unique_name_in_owner = true
 position = Vector2(504, -56)
 metadata/color = "arcane"
 
@@ -305,6 +305,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
 [node name="DarkDoor" parent="." unique_id=1674757581 groups=["isDark"] instance=ExtResource("5_7gny6")]
+unique_name_in_owner = true
 position = Vector2(-304, 56)
 
 [node name="Sprite2D" parent="DarkDoor" index="0" unique_id=1270523231]
@@ -365,6 +366,20 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="RichTextLabel4" type="RichTextLabel" parent="." unique_id=383402821]
+offset_left = -50.0
+offset_top = -64.0
+offset_right = 5550.0
+offset_bottom = 2118.0
+scale = Vector2(0.01, 0.01)
+theme = SubResource("Theme_muem4")
+theme_override_font_sizes/normal_font_size = 800
+bbcode_enabled = true
+text = "Arrows to move ->"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=1653217757]
 offset_left = 432.0
 offset_top = -88.0
@@ -379,28 +394,10 @@ text = "The flame lights the way..."
 fit_content = true
 horizontal_alignment = 1
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="." unique_id=1965887749]
-offset_left = 240.0
-offset_top = -24.0
-offset_right = 4240.0
-offset_bottom = 2476.0
-scale = Vector2(0.01, 0.01)
-theme = SubResource("Theme_dp3eg")
-theme_override_fonts/normal_font = ExtResource("9_1s4pk")
-theme_override_font_sizes/normal_font_size = 600
-bbcode_enabled = true
-text = "Rotator Platforms"
-fit_content = true
-horizontal_alignment = 1
-
-[node name="RotatingArea" parent="." unique_id=161747465 instance=ExtResource("15_s7g0b")]
-position = Vector2(256, -24)
-radius = 30
-metadata/color = "arcane"
-
 [node name="Fires" type="Node2D" parent="." unique_id=831430923]
 
 [node name="GreenFire" parent="Fires" unique_id=1652482592 groups=["Fire"] instance=ExtResource("12_go7sj")]
+position = Vector2(1440, 0)
 metadata/color = "green"
 
 [node name="AnimatedSprite2D" parent="Fires/GreenFire" index="0" unique_id=764503273]
@@ -463,7 +460,6 @@ script = ExtResource("20_k8ld0")
 
 [editable path="LightDoor"]
 [editable path="DarkDoor"]
-[editable path="RotatingArea"]
 [editable path="Fires/GreenFire"]
 [editable path="Fires/HotPinkFire"]
 [editable path="Fires/PurpleFire"]

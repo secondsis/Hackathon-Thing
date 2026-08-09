@@ -5,8 +5,9 @@ var lanternType = "dark"
 @onready var fire_nodes = get_tree().get_nodes_in_group("Fire")
 
 func _ready() -> void:
+	lanternType = "dark"
 	get_tree().get_first_node_in_group("transition").find_child("AnimationPlayer").play("transition_in")
-	AudioManager.play_music(GameInfo.scenes.get(GameInfo.currLevel)["music"], false)
+	AudioManager.play_music(GameInfo.scenes.get(GameInfo.currLevel-1)["music"], false)
 	setDarkenedLantern()
 	for fire_node in fire_nodes:
 		var area2d : Area2D = fire_node.find_child("Area2D")
@@ -81,14 +82,16 @@ func enableLightBlocks(color: String):
 	var lightNodes := get_tree().get_nodes_in_group("isLight")
 	var darkNodes := get_tree().get_nodes_in_group("isDark")
 	for lightNode in lightNodes:
-		if lightNode.get_meta("color", "e") == color:
+		if lightNode.get_meta("color", "e") == color or lightNode.get_meta("color", "e") == "all":
 			lightNode.visible = true
 			var cs : CollisionShape2D = lightNode.find_child("CollisionShape2D")
-			cs.set_deferred("disabled", false)
+			if cs:
+				cs.set_deferred("disabled", false)
 		else:
 			lightNode.visible = false
 			var cs : CollisionShape2D = lightNode.find_child("CollisionShape2D")
-			cs.set_deferred("disabled", true)
+			if cs:
+				cs.set_deferred("disabled", true)
 	
 	for darkNode in darkNodes:
 		darkNode.visible = false
@@ -103,11 +106,13 @@ func enableDarkBlocks():
 	for lightNode in lightNodes:
 		lightNode.visible = false
 		var cs : CollisionShape2D = lightNode.find_child("CollisionShape2D")
-		cs.set_deferred("disabled", true)
+		if cs:
+			cs.set_deferred("disabled", true)
 	for darkNode in darkNodes:
 		darkNode.visible = true
 		var cs : CollisionShape2D = darkNode.find_child("CollisionShape2D")
-		cs.set_deferred("disabled", false)
+		if cs:
+			cs.set_deferred("disabled", false)
 
 func disableLightBlocks():
 	%LightArcaneLayer.visible = false

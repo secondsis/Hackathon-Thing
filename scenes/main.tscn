@@ -343,7 +343,7 @@ tile_set = SubResource("TileSet_tipki")
 
 [node name="LightArcaneLayer" type="TileMapLayer" parent="TileMap" unique_id=1210012120]
 unique_name_in_owner = true
-tile_map_data = PackedByteArray("AAAYAAAAAAAAAAAAAAAZAAAAAAAAAAAAAAAZAP//AAAAAAAAAAAaAP//AAAAAAAAAAAaAP7/AAAAAAAAAAAbAP7/AAAAAAAAAAAbAP3/AAAAAAAAAAAcAP3/AAAAAAAAAAAdAP3/AAAAAAAAAAAeAP3/AAAAAAAAAAAfAP3/AAAAAAAAAAAgAP3/AAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAgAP3/AAAAAAAAAAAfAP3/AAAAAAAAAAAeAP3/AAAAAAAAAAAdAP3/AAAAAAAAAAAcAP3/AAAAAAAAAAAbAP3/AAAAAAAAAAAaAP7/AAAAAAAAAAAbAP7/AAAAAAAAAAAZAP//AAAAAAAAAAAYAAAAAAAAAAAAAAAZAAAAAAAAAAAAAAAaAP//AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_tipki")
 
 [node name="LightBuzzLayer" type="TileMapLayer" parent="TileMap" unique_id=698328874]
@@ -368,6 +368,7 @@ tile_map_data = PackedByteArray("AAD0/wAAAgADAAIAAADz/wAAAgADAAIAAADz/wEAAgADAAI
 tile_set = SubResource("TileSet_tipki")
 
 [node name="LightDoor" parent="." unique_id=1992834227 groups=["isLight"] instance=ExtResource("3_o6xl0")]
+unique_name_in_owner = true
 position = Vector2(504, -56)
 metadata/color = "arcane"
 
@@ -377,6 +378,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
 [node name="DarkDoor" parent="." unique_id=1674757581 groups=["isDark"] instance=ExtResource("4_tipki")]
+unique_name_in_owner = true
 position = Vector2(-304, 56)
 
 [node name="Sprite2D" parent="DarkDoor" index="0" unique_id=1270523231]

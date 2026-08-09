@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://xd448rp77hux"]
+
+[ext_resource type="Script" uid="uid://d2ufltv3esp4o" path="res://scripts/ending_dialogue.gd" id="2_xbca2"]
+[ext_resource type="Texture2D" uid="uid://d0k76jesll8q7" path="res://assets/wokestuff.png" id="3_8v33f"]
+[ext_resource type="FontFile" uid="uid://dkj7fge6et3t5" path="res://assets/BitcountPropSingle-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="3_w6bla"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2vnuy"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4p0st"]
+content_margin_left = 50.0
+content_margin_top = 50.0
+content_margin_right = 50.0
+
+[node name="LightEnding" type="Node2D" unique_id=647829992]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=213342514]
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=775056154]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2vnuy")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1397348936]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 272.0
+offset_top = -296.0
+offset_right = -328.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_8v33f")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Dialogue" type="PanelContainer" parent="CanvasLayer" unique_id=279273721]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 211.2
+offset_top = 360.0
+offset_right = -211.20007
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_xbca2")
+dialogue_text = Array[String](["You woke. You saw. You pained.", "You have a keen eye for things.", "Welcome to the truth.", "Woke Ending"])
+
+[node name="DialogueText" type="RichTextLabel" parent="CanvasLayer/Dialogue" unique_id=49408762]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_w6bla")
+theme_override_font_sizes/normal_font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4p0st")
+text = "
+	-	A notebook. "

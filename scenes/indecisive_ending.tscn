@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://c36cukj8wg2gf"]
+
+[ext_resource type="Script" uid="uid://d2ufltv3esp4o" path="res://scripts/ending_dialogue.gd" id="1_7dacc"]
+[ext_resource type="FontFile" uid="uid://dkj7fge6et3t5" path="res://assets/BitcountPropSingle-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="2_gcbag"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtkb0"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4p0st"]
+content_margin_left = 50.0
+content_margin_top = 50.0
+content_margin_right = 50.0
+
+[node name="LightEnding" type="Node2D" unique_id=647829992]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=213342514]
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1122196751]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rtkb0")
+
+[node name="Dialogue" type="PanelContainer" parent="CanvasLayer" unique_id=279273721]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 211.2
+offset_top = 360.0
+offset_right = -211.20007
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7dacc")
+dialogue_text = Array[String](["You couldn't decide.", "Next time, pick a path.", "Indecisive Ending"])
+
+[node name="DialogueText" type="RichTextLabel" parent="CanvasLayer/Dialogue" unique_id=49408762]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_gcbag")
+theme_override_font_sizes/normal_font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4p0st")
+text = "
+	-	A notebook. "
