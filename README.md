@@ -16,6 +16,9 @@ As a lantern, you can pick up flames as light.
 The light reveals tiles specific to that light's color. 
 You may also choose to not light up your lantern, and instead a different, more hidden, path may reveal itself.
 
+# HOW TO RUN
+Go to https://secondsis.itch.io/lantern-game and hit run, it works on browser. Use Arrow Keys to move. WASD does not work.
+
 # CREDITS
 
 credit to Shulkern for Umbra on https://www.newgrounds.com/audio/listen/1255103
