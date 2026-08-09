@@ -21,4 +21,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	# Check if player
 	if body.is_in_group("Player"):
 		print("next scene")
+		GameInfo.lightDoorsComplete += 1
 		GameInfo.progress_scene()

@@ -1,7 +1,7 @@
 extends Node2D
 
-var radius = 100
-var rotation_speed = 2.0
+@export var radius = 50
+@export var rotation_speed = 2.0
 
 var angle = 0.0
 

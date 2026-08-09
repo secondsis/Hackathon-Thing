@@ -36,6 +36,7 @@ Player=""
 isLight=""
 isDark=""
 transition=""
+Fire=""
 
 [physics]
 

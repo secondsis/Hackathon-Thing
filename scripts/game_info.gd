@@ -17,6 +17,30 @@ var lightDoorsComplete = 0
 var darkDoorsComplete = 0
 # Only possible if player has seen both other endings
 var completionistDoorsComplete = 0
+var gotNotebook = false
+var gotTelescreen = false
+var gotHugePig = false
+
+# The player MUST complete the light ending and gather the three materials
+# The three materials will allow the next run to spawn fans in replacement of the material
+# This allows the player to open both doors. 
+# The player may optionally do the dark ending without fans. 
+
+# Light ending:
+# Show a video recording of a screen with brainrot video
+# Monologue will say smth like, "You saw the light. The light had no heart, 
+# no soul. Its only purpose was to keep you entertained, and you were numbly satisfied."
+
+# Dark ending: 
+# Show headlines of articles. LGBTQ member killed, etc. banning books
+# "You woke. You saw. You pained. You have a keen eye for things. Welcome to the truth."
+
+# Complete ending: 
+# Show nothing.
+# "You watched the light descend. You watched as the world turned on itself, with everything 
+# seemingly out of your control. Yet, you grasped onto hope. Perhaps there is no solution, and no 
+# doubt if there was we wouldn't be here, but with this kind of resistence- this path...
+# Maybe you'll change something. Or maybe you'll at least try. But you refused to be idle.  
 
 func progress_scene():
 	currLevel += 1
