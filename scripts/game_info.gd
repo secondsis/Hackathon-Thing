@@ -44,9 +44,9 @@ const scenes = [
 	#}
 ]
 
-var currLevel = 8
+var currLevel = 1
 var lightDoorsComplete = 0
-var darkDoorsComplete = 7
+var darkDoorsComplete = 0
 # Only possible if player has seen both other endings
 var completionistDoorsComplete = 0
 var gotNotebook = false

@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://c1v3axwwulfnl" path="res://prefabs/fire.tscn" id="12_vhnap"]
 [ext_resource type="Texture2D" uid="uid://ckpiug1rcadoj" path="res://assets/colors/green_fire.png" id="17_pc3at"]
 [ext_resource type="Script" uid="uid://vficj33l8yem" path="res://scripts/audio_manager.gd" id="20_bgibu"]
+[ext_resource type="PackedScene" uid="uid://dr2ahkj02g2q2" path="res://prefabs/fan.tscn" id="20_k22d5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dp3eg"]
 texture = ExtResource("1_k22d5")
@@ -259,12 +260,12 @@ tile_map_data = PackedByteArray("AAC0/+b/AAAAAAAAAAC0/+f/AAAAAAAAAAC0/+j/AAAAAAA
 tile_set = SubResource("TileSet_tefeu")
 
 [node name="Ground" type="TileMapLayer" parent="TileMap" unique_id=2097511346]
-tile_map_data = PackedByteArray("AAD7/wEAAgACAAEAAAD8/wEAAgACAAEAAAD9/wEAAgACAAEAAAD+/wEAAgACAAEAAAD//wEAAgACAAEAAAAAAAEAAgACAAEAAAABAAEAAgACAAEAAAACAAEAAgACAAEAAAD3/wEAAgABAAEAAAD4/wEAAgACAAEAAAD5/wEAAgACAAEAAAD6/wEAAgACAAEAAAD7/wIAAgAAAAIAAAD6/wIAAgAAAAIAAAD5/wIAAgAAAAIAAAD4/wIAAgAAAAIAAAD8/wIAAgAAAAIAAAD9/wIAAgAAAAIAAAD+/wIAAgAAAAIAAAD//wIAAgAAAAIAAAAAAAIAAgAAAAIAAAABAAIAAgAAAAIAAAACAAIAAgAAAAIAAAD3/wIAAgABAAIAAAADAAEAAgADAAEAAAADAAIAAgACAAIAAAA=")
+tile_map_data = PackedByteArray("AAD7/wEAAgACAAEAAAD8/wEAAgACAAEAAAD9/wEAAgACAAEAAAD+/wEAAgACAAEAAAD//wEAAgACAAEAAAAAAAEAAgACAAEAAAABAAEAAgACAAEAAAACAAEAAgACAAEAAAD3/wEAAgABAAEAAAD4/wEAAgACAAEAAAD5/wEAAgACAAEAAAD6/wEAAgACAAEAAAD7/wIAAgAAAAIAAAD6/wIAAgAAAAIAAAD5/wIAAgAAAAIAAAD4/wIAAgAAAAIAAAD8/wIAAgAAAAIAAAD9/wIAAgAAAAIAAAD+/wIAAgAAAAIAAAD//wIAAgAAAAIAAAAAAAIAAgAAAAIAAAABAAIAAgAAAAIAAAACAAIAAgAAAAIAAAD3/wIAAgABAAIAAAADAAEAAgADAAEAAAADAAIAAgACAAIAAAAgAP3/AgACAAAAAAA=")
 tile_set = SubResource("TileSet_tipki")
 
 [node name="LightArcaneLayer" type="TileMapLayer" parent="TileMap" unique_id=1210012120]
 unique_name_in_owner = true
-tile_map_data = PackedByteArray("AAAYAAAAAAAAAAAAAAAaAP//AAAAAAAAAAAcAP3/AAAAAAAAAAAeAP3/AAAAAAAAAAAfAP3/AAAAAAAAAAAgAP3/AAAAAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAKAAEAAAAAAAAAAAALAAEAAAAAAAAAAAAMAAEAAAAAAAAAAAAPAAEAAAAAAAAAAAAQAAEAAAAAAAAAAAARAAEAAAAAAAAAAAATAAEAAAABAAAAAAAUAAEAAAABAAAAAAAVAAEAAAABAAAAAAA=")
+tile_map_data = PackedByteArray("AAAYAAAAAAAAAAAAAAAaAP//AAAAAAAAAAAcAP3/AAAAAAAAAAAeAP3/AAAAAAAAAAAfAP3/AAAAAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAKAAEAAAAAAAAAAAALAAEAAAAAAAAAAAAMAAEAAAAAAAAAAAAPAAEAAAAAAAAAAAAQAAEAAAAAAAAAAAARAAEAAAAAAAAAAAATAAEAAAABAAAAAAAUAAEAAAABAAAAAAAVAAEAAAABAAAAAAA=")
 tile_set = SubResource("TileSet_tipki")
 
 [node name="LightBuzzLayer" type="TileMapLayer" parent="TileMap" unique_id=698328874]
@@ -406,9 +407,13 @@ zoom = Vector2(5, 5)
 [node name="AudioManager" type="Node" parent="." unique_id=1734110681]
 script = ExtResource("20_bgibu")
 
+[node name="Fan" parent="." unique_id=399879698 instance=ExtResource("20_k22d5")]
+position = Vector2(520, -56)
+
 [connection signal="body_entered" from="LightDoor/Area2D" to="LightDoor" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="DarkDoor/Area2D" to="DarkDoor" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Void/Area2D" to="Game" method="_on_void_entered"]
+[connection signal="body_entered" from="Fan/Area2D" to="Game" method="_on_fan_entered"]
 
 [editable path="LightDoor"]
 [editable path="DarkDoor"]
@@ -419,3 +424,4 @@ script = ExtResource("20_bgibu")
 [editable path="Fires/ArcaneFire"]
 [editable path="Player"]
 [editable path="Void"]
+[editable path="Fan"]

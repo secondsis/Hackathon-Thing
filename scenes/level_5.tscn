@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://cl8m8gvsskarp" path="res://scripts/dialogue.gd" id="12_u88kh"]
 [ext_resource type="FontFile" uid="uid://dkj7fge6et3t5" path="res://assets/BitcountPropSingle-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="13_jrosa"]
 [ext_resource type="Script" uid="uid://dvs0tn12grpxt" path="res://scripts/game.gd" id="14_sbc0t"]
+[ext_resource type="PackedScene" uid="uid://dr2ahkj02g2q2" path="res://prefabs/fan.tscn" id="15_ishhe"]
 [ext_resource type="PackedScene" uid="uid://c1v3axwwulfnl" path="res://prefabs/fire.tscn" id="15_wgn3r"]
 [ext_resource type="Texture2D" uid="uid://bs7h2u3gye03g" path="res://assets/colors/buzz_fire.png" id="16_p5exd"]
 [ext_resource type="PackedScene" uid="uid://481el6amxy1s" path="res://prefabs/player.tscn" id="17_uucwl"]
@@ -348,6 +349,9 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_y6deb")
 text = "
 	-	A notebook. "
 
+[node name="Fan" parent="CanvasLayer" unique_id=399879698 instance=ExtResource("15_ishhe")]
+position = Vector2(200, -32)
+
 [node name="Game" type="Node2D" parent="." unique_id=392370872]
 script = ExtResource("14_sbc0t")
 
@@ -413,11 +417,13 @@ script = ExtResource("19_g5cqv")
 
 [connection signal="body_entered" from="LightDoor/Area2D" to="LightDoor" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="DarkDoor/Area2D" to="DarkDoor" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="CanvasLayer/Fan/Area2D" to="Game" method="_on_fan_entered"]
 [connection signal="body_entered" from="Void/Area2D" to="Game" method="_on_void_entered"]
 
 [editable path="RotatingArea"]
 [editable path="LightDoor"]
 [editable path="DarkDoor"]
+[editable path="CanvasLayer/Fan"]
 [editable path="Fires/GreenFire"]
 [editable path="Fires/HotPinkFire"]
 [editable path="Fires/PurpleFire"]

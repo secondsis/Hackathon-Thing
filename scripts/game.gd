@@ -165,6 +165,7 @@ func _on_notebook_enter(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		var guh : Array[String]= ["\t-\tA notebook.", "\t-\tIts pages look yellow and tattered."]
 		initiate_dialogues(guh, 2)
+		GameInfo.gotNotebook = true
 		%Notebook.queue_free()
 		AudioManager.play_sound("res://assets/audio/item_get.wav")
 
@@ -173,6 +174,7 @@ func _on_huge_pig_enter(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		var guh : Array[String] = ["\t-\tA huge pig.", "\t-\tFrom the tilt of the hog head, you swore that it was almost watching you.", "\t-\tIt holds implications beyond your understanding."]
 		initiate_dialogues(guh, 2)
+		GameInfo.gotHugePig = true
 		%HugePig.queue_free()
 		AudioManager.play_sound("res://assets/audio/item_get.wav")
 
@@ -181,5 +183,6 @@ func _on_telescreen_enter(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		var guh : Array[String] = ["\t-\tA large television screen.", "\t-\t...", "\t-\tIs that a mic?"]
 		initiate_dialogues(guh, 2)
+		GameInfo.gotTelescreen = true
 		%Telescreen.queue_free()
 		AudioManager.play_sound("res://assets/audio/item_get.wav")

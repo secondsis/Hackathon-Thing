@@ -580,11 +580,10 @@ shape = SubResource("RectangleShape2D_8c7da")
 libraries/ = SubResource("AnimationLibrary_tcxil")
 autoplay = &"new_animation"
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D/AnimatableBody2D" unique_id=86520459 groups=["isLight"]]
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/AnimatableBody2D" unique_id=86520459]
 texture = ExtResource("2_xkbpl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
-metadata/color = "arcane"
 
 [connection signal="body_entered" from="LightDoor/Area2D" to="LightDoor" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="DarkDoor/Area2D" to="DarkDoor" method="_on_area_2d_body_entered"]

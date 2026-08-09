@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cobx7t7i3k45i" path="res://assets/doors.png" id="8_ifqri"]
 [ext_resource type="PackedScene" uid="uid://vavwyryxatec" path="res://prefabs/dark_door.tscn" id="9_hxced"]
 [ext_resource type="Texture2D" uid="uid://d0fsudgufakv2" path="res://assets/notebook.png" id="9_q41qf"]
+[ext_resource type="Script" uid="uid://ckwsscfyuqt0j" path="res://scripts/notebook.gd" id="9_s0ibv"]
 [ext_resource type="Script" uid="uid://c23mji5id4bgq" path="res://scripts/game_info.gd" id="10_sykev"]
 [ext_resource type="Texture2D" uid="uid://d3wbo867oj5cc" path="res://assets/LiterallyAWhiteFircle.png" id="11_11qgq"]
 [ext_resource type="Script" uid="uid://cl8m8gvsskarp" path="res://scripts/dialogue.gd" id="12_hgnpj"]
@@ -128,6 +129,10 @@ sources/3 = SubResource("TileSetAtlasSource_2wyq8")
 sources/4 = SubResource("TileSetAtlasSource_vxglm")
 sources/5 = SubResource("TileSetAtlasSource_2f3dj")
 sources/6 = SubResource("TileSetAtlasSource_yq6so")
+
+[sub_resource type="Theme" id="Theme_s0ibv"]
+default_font = ExtResource("13_5g1ve")
+default_font_size = 8
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s0ibv"]
 
@@ -310,8 +315,22 @@ tile_set = SubResource("TileSet_tipki")
 
 [node name="DarkLayer" type="TileMapLayer" parent="TileMap" unique_id=1821385965]
 unique_name_in_owner = true
-tile_map_data = PackedByteArray("AADy/wEAAgADAAIAAADx/wEAAgADAAIAAADw/wEAAgADAAIAAADv/wEAAgADAAIAAADu/wEAAgADAAIAAADv////AgADAAIAAADw////AgADAAIAAADx////AgADAAIAAADv//3/AgADAAIAAADw//3/AgADAAIAAADx//3/AgADAAIAAADv//v/AgADAAIAAADw//v/AgADAAIAAADx//v/AgADAAIAAAA=")
+tile_map_data = PackedByteArray("AADy/wEAAgADAAIAAADx/wEAAgADAAIAAADw/wEAAgADAAIAAADv/wEAAgADAAIAAADu/wEAAgADAAIAAADv////AgADAAIAAADw////AgADAAIAAADx////AgADAAIAAADv//3/AgADAAIAAADw//3/AgADAAIAAADx//3/AgADAAIAAADv//v/AgADAAIAAADw//v/AgADAAIAAADx//v/AgADAAIAAADt//7/AgADAAIAAADs//z/AgADAAIAAAA=")
 tile_set = SubResource("TileSet_tipki")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1480216120]
+offset_left = -320.0
+offset_top = -56.0
+offset_right = 2680.0
+offset_bottom = 2126.0
+scale = Vector2(0.01, 0.01)
+theme = SubResource("Theme_s0ibv")
+theme_override_font_sizes/normal_font_size = 800
+bbcode_enabled = true
+text = "NOOBs ONLY"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="LightDoor" parent="." unique_id=1992834227 groups=["isLight"] instance=ExtResource("7_lp0k0")]
 unique_name_in_owner = true
@@ -326,6 +345,7 @@ region_rect = Rect2(0, 0, 16, 16)
 [node name="Notebook" type="Node2D" parent="." unique_id=1932584232]
 unique_name_in_owner = true
 position = Vector2(-136, 88)
+script = ExtResource("9_s0ibv")
 
 [node name="Area2D" type="Area2D" parent="Notebook" unique_id=1780157273]
 
@@ -446,6 +466,7 @@ zoom = Vector2(5, 5)
 script = ExtResource("19_qjmhf")
 
 [connection signal="body_entered" from="LightDoor/Area2D" to="LightDoor" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Notebook/Area2D" to="Game" method="_on_notebook_enter"]
 [connection signal="body_entered" from="DarkDoor/Area2D" to="DarkDoor" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Void/Area2D" to="Game" method="_on_void_entered"]
 

@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://xm1bd1w4e8xi" path="res://prefabs/light_door.tscn" id="7_j23s2"]
 [ext_resource type="Texture2D" uid="uid://cobx7t7i3k45i" path="res://assets/doors.png" id="8_cvx22"]
 [ext_resource type="PackedScene" uid="uid://vavwyryxatec" path="res://prefabs/dark_door.tscn" id="9_cmloh"]
+[ext_resource type="Script" uid="uid://m5mn8153imul" path="res://scripts/huge_pig.gd" id="9_ppcva"]
 [ext_resource type="Texture2D" uid="uid://ca3yeyb2f7sje" path="res://assets/pig.png" id="9_tdc3x"]
 [ext_resource type="Script" uid="uid://c23mji5id4bgq" path="res://scripts/game_info.gd" id="10_ejjw3"]
 [ext_resource type="Texture2D" uid="uid://d3wbo867oj5cc" path="res://assets/LiterallyAWhiteFircle.png" id="11_gtb3y"]
@@ -486,6 +487,7 @@ region_rect = Rect2(0, 0, 16, 16)
 [node name="HugePig" type="Node2D" parent="." unique_id=1625711050]
 unique_name_in_owner = true
 position = Vector2(926, 96)
+script = ExtResource("9_ppcva")
 
 [node name="Area2D" type="Area2D" parent="HugePig" unique_id=1882605708]
 
@@ -650,6 +652,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
 [connection signal="body_entered" from="LightDoor/Area2D" to="LightDoor" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="HugePig/Area2D" to="Game" method="_on_huge_pig_enter"]
 [connection signal="body_entered" from="DarkDoor/Area2D" to="DarkDoor" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Void/Area2D" to="Game" method="_on_void_entered"]
 

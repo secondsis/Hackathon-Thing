@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://vavwyryxatec" path="res://prefabs/dark_door.tscn" id="10_t4jau"]
 [ext_resource type="Texture2D" uid="uid://lvf4olrl2sai" path="res://assets/tv.png" id="11_5kl8g"]
 [ext_resource type="Script" uid="uid://c23mji5id4bgq" path="res://scripts/game_info.gd" id="11_7e2h5"]
+[ext_resource type="Script" uid="uid://di8rromp2f48e" path="res://scripts/telescreen.gd" id="11_kljjn"]
 [ext_resource type="Texture2D" uid="uid://d3wbo867oj5cc" path="res://assets/LiterallyAWhiteFircle.png" id="12_r7cvq"]
 [ext_resource type="Script" uid="uid://cl8m8gvsskarp" path="res://scripts/dialogue.gd" id="13_dx64l"]
 [ext_resource type="FontFile" uid="uid://dkj7fge6et3t5" path="res://assets/BitcountPropSingle-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="14_acdgk"]
@@ -405,7 +406,7 @@ tile_map_data = PackedByteArray("AAC0/+b/AAAAAAAAAAC0/+f/AAAAAAAAAAC0/+j/AAAAAAA
 tile_set = SubResource("TileSet_tefeu")
 
 [node name="Ground" type="TileMapLayer" parent="TileMap" unique_id=2097511346]
-tile_map_data = PackedByteArray("AAD7/wEAAgACAAEAAAD8/wEAAgACAAEAAAD9/wEAAgACAAEAAAD+/wEAAgACAAEAAAD//wEAAgACAAEAAAAAAAEAAgACAAEAAAABAAEAAgACAAEAAAACAAEAAgACAAEAAAD3/wEAAgABAAEAAAD4/wEAAgACAAEAAAD5/wEAAgACAAEAAAD6/wEAAgACAAEAAAD7/wIAAgAAAAIAAAD6/wIAAgAAAAIAAAD5/wIAAgAAAAIAAAD4/wIAAgAAAAIAAAD8/wIAAgAAAAIAAAD9/wIAAgAAAAIAAAD+/wIAAgAAAAIAAAD//wIAAgAAAAIAAAAAAAIAAgAAAAIAAAABAAIAAgAAAAIAAAACAAIAAgAAAAIAAAD3/wIAAgABAAIAAAADAAEAAgADAAEAAAADAAIAAgACAAIAAAA=")
+tile_map_data = PackedByteArray("AAD7/wEAAgACAAEAAAD8/wEAAgACAAEAAAD9/wEAAgACAAEAAAD+/wEAAgACAAEAAAD//wEAAgACAAEAAAAAAAEAAgACAAEAAAABAAEAAgACAAEAAAACAAEAAgACAAEAAAD3/wEAAgABAAEAAAD4/wEAAgACAAEAAAD5/wEAAgACAAEAAAD6/wEAAgACAAEAAAD7/wIAAgAAAAIAAAD6/wIAAgAAAAIAAAD5/wIAAgAAAAIAAAD4/wIAAgAAAAIAAAD8/wIAAgAAAAIAAAD9/wIAAgAAAAIAAAD+/wIAAgAAAAIAAAD//wIAAgAAAAIAAAAAAAIAAgAAAAIAAAABAAIAAgAAAAIAAAACAAIAAgAAAAIAAAADAAEAAgADAAEAAAADAAIAAgACAAIAAAA=")
 tile_set = SubResource("TileSet_tipki")
 
 [node name="LightArcaneLayer" type="TileMapLayer" parent="TileMap" unique_id=1210012120]
@@ -469,6 +470,7 @@ region_rect = Rect2(16, 0, 16, 16)
 [node name="Telescreen" type="Node2D" parent="DarkDoor" unique_id=685586697]
 unique_name_in_owner = true
 position = Vector2(584, -73)
+script = ExtResource("11_kljjn")
 
 [node name="Area2D" type="Area2D" parent="DarkDoor/Telescreen" unique_id=824536949]
 
@@ -584,6 +586,7 @@ script = ExtResource("20_qynrr")
 
 [connection signal="body_entered" from="LightDoor/Area2D" to="LightDoor" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="DarkDoor/Area2D" to="DarkDoor" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="DarkDoor/Telescreen/Area2D" to="Game" method="_on_telescreen_enter"]
 [connection signal="body_entered" from="Void/Area2D" to="Game" method="_on_void_entered"]
 
 [editable path="RotatingArea"]

@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var isLight = true
+var usedDoor = false
 
 var didOtherDoor = false
 
@@ -21,7 +22,8 @@ func progress_level():
 
 func _on_area_2d_body_entered(body: Node2D, doorNode: Node2D) -> void:
 	# Check if player
-	if body.is_in_group("Player"):
+	if body.is_in_group("Player") and not usedDoor:
+		usedDoor = true
 		if doorNode.is_in_group("isLight"):
 			GameInfo.lightDoorsComplete += 1
 		elif doorNode.is_in_group("isDark"):

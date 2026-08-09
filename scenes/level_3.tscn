@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://481el6amxy1s" path="res://prefabs/player.tscn" id="17_os8re"]
 [ext_resource type="PackedScene" uid="uid://c37fk1p8i7sil" path="res://prefabs/void.tscn" id="18_ciptj"]
 [ext_resource type="Script" uid="uid://vficj33l8yem" path="res://scripts/audio_manager.gd" id="19_jnlnj"]
+[ext_resource type="PackedScene" uid="uid://dr2ahkj02g2q2" path="res://prefabs/fan.tscn" id="20_wa6ex"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dp3eg"]
 texture = ExtResource("1_q7pjq")
@@ -286,7 +287,7 @@ tile_set = SubResource("TileSet_tipki")
 
 [node name="DarkLayer" type="TileMapLayer" parent="TileMap" unique_id=1821385965]
 unique_name_in_owner = true
-tile_map_data = PackedByteArray("AAAMAPj/AgADAAIAAAANAPj/AgADAAIAAAAPAPf/AgADAAIAAAAKAPX/AgADAAIAAAALAPX/AgADAAIAAAAMAPX/AgADAAIAAAA=")
+tile_map_data = PackedByteArray("AAAMAPj/AgADAAIAAAANAPj/AgADAAIAAAAPAPf/AgADAAIAAAAKAPX/AgADAAIAAAALAPX/AgADAAIAAAAMAPX/AgADAAIAAAALAPz/AgADAAIAAAAKAPr/AgADAAIAAAA=")
 tile_set = SubResource("TileSet_tipki")
 
 [node name="LightDoor" parent="." unique_id=1992834227 groups=["isLight"] instance=ExtResource("7_wu3ic")]
@@ -407,9 +408,13 @@ zoom = Vector2(5, 5)
 [node name="AudioManager" type="Node" parent="." unique_id=1734110681]
 script = ExtResource("19_jnlnj")
 
+[node name="Fan" parent="." unique_id=399879698 instance=ExtResource("20_wa6ex")]
+position = Vector2(200, -72)
+
 [connection signal="body_entered" from="LightDoor/Area2D" to="LightDoor" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="DarkDoor/Area2D" to="DarkDoor" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Void/Area2D" to="Game" method="_on_void_entered"]
+[connection signal="body_entered" from="Fan/Area2D" to="Game" method="_on_fan_entered"]
 
 [editable path="LightDoor"]
 [editable path="DarkDoor"]
@@ -420,3 +425,4 @@ script = ExtResource("19_jnlnj")
 [editable path="Fires/ArcaneFire"]
 [editable path="Player"]
 [editable path="Void"]
+[editable path="Fan"]
