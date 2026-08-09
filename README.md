@@ -1,8 +1,14 @@
+<img width="716" height="688" alt="Screenshot from 2026-08-09 08-37-06" src="https://github.com/user-attachments/assets/45547b45-9a19-4729-8391-b23195fc3091" />
+
+
 # ABOUT
 This is a really cool platformer game made for the Horizons Polaris hackathon in Toronto. 
 
 # THEME
 "Light is only half the story."
+
+<img width="2611" height="1469" alt="Screenshot from 2026-08-09 08-38-48" src="https://github.com/user-attachments/assets/47077083-2641-4d37-a522-67eac9192f83" />
+
 
 # GAME
 You play as a lantern and have to reach the door. 
